@@ -1,0 +1,20 @@
+---
+- hosts: machine
+  vars:
+    localbindir: "{{ ansible_env.HOME }}/.local/bin/"
+  roles:
+    - name: init
+
+    - name: basictools
+      tags: basictools
+  
+    - name: fish
+      tags: fish
+
+    - name: pddg.ghq
+      become: yes
+      vars:
+        ghq_install_dir: "{{ localbindir }}"
+
+    - name: neovim
+      tags: neovim

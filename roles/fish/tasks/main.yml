@@ -1,0 +1,15 @@
+- name: Install fish shell
+  apt:
+    name: fish
+  become: yes
+
+- name: Install fisherman
+  command: fish -c 'curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher'
+  args:
+    creates: ~/.config/fish/functions/fisher.fish
+
+- name: Install plugin fish-ghq
+  command: fish -c 'fisher install decors/fish-ghq'
+
+- name: set ghq selector
+  command: fish -c 'set -U GHQ_SELECTOR peco'

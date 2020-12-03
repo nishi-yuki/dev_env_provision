@@ -1,0 +1,10 @@
+- name: Apt update
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Create Local bin directory if it does not exist
+  file:
+    path: "{{ localbindir }}"
+    state: directory
+    mode: '0750'

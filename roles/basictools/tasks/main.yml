@@ -1,0 +1,14 @@
+---
+- name: Install basic tools
+  apt:
+    name:
+      - curl
+      - wget
+      - git
+      - python3
+      - pipenv
+      - gcc
+      - g++
+      - peco
+      - tree
+  become: yes
